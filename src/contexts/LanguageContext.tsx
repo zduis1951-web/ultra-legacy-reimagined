@@ -170,6 +170,11 @@ const translations: Record<Language, Record<string, string>> = {
     "contact.office": "Our Office",
     "contact.hours": "Working Hours",
     "contact.hoursValue": "Sun - Thu: 9AM - 6PM",
+    "contact.clickToSend": "Click Here to send a message",
+    "contact.subject": "Subject",
+    "contact.contactInfo": "Contact Information",
+    "contact.successTitle": "Message Sent!",
+    "contact.successMessage": "Thank you for contacting us. We will get back to you shortly.",
   },
   ar: {
     // Brand
@@ -329,6 +334,11 @@ const translations: Record<Language, Record<string, string>> = {
     "contact.office": "مكتبنا",
     "contact.hours": "ساعات العمل",
     "contact.hoursValue": "الأحد - الخميس: ٩ صباحاً - ٦ مساءً",
+    "contact.clickToSend": "اضغط هنا لإرسال رسالة",
+    "contact.subject": "الموضوع",
+    "contact.contactInfo": "معلومات الاتصال",
+    "contact.successTitle": "تم الإرسال!",
+    "contact.successMessage": "شكراً لتواصلك معنا. سنرد عليك في أقرب وقت.",
   },
 };
 

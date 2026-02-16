@@ -30,15 +30,15 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
+    --border: 0 0% 92%;
+    --input: 0 0% 92%;
     --ring: 0 0% 5%;
 
     --radius: 0.25rem;
 
-    --gold: 42 60% 50%;
-    --gold-light: 42 60% 70%;
-    --gold-dark: 42 60% 35%;
+    --gold: 38 65% 45%;
+    --gold-light: 38 55% 62%;
+    --gold-dark: 38 70% 32%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 0 0% 20%;

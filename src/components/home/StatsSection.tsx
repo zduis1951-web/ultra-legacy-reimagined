@@ -32,9 +32,13 @@ const StatsSection = () => {
   ];
 
   return (
-    <section ref={ref} className="py-20 bg-foreground text-background">
+    <section ref={ref} className="py-24 md:py-32 bg-foreground text-background relative">
+      {/* Gold top line */}
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
+
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0">
           {stats.map((stat, i) => {
             const count = useCounter(stat.value, inView);
             return (
@@ -44,12 +48,14 @@ const StatsSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.15 }}
-                className="text-center"
+                className={`text-center group cursor-default py-4 ${
+                  i < stats.length - 1 ? 'md:border-r md:border-gold/15' : ''
+                }`}
               >
-                <span className="text-4xl md:text-6xl font-display font-bold text-gold">
+                <span className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-gold group-hover:text-gold-light transition-colors duration-500">
                   {count}{stat.suffix}
                 </span>
-                <p className="mt-2 text-xs tracking-[0.2em] uppercase opacity-60 font-body">{stat.label}</p>
+                <p className="mt-3 text-[10px] tracking-[0.25em] uppercase opacity-50 font-body group-hover:opacity-70 transition-opacity duration-500">{stat.label}</p>
               </motion.div>
             );
           })}

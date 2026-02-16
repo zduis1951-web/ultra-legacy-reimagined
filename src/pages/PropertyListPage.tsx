@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Bed, Bath, Home, ArrowRight, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
-import villaImg from '@/assets/villa-alrimaila.jpg';
+import villaImg from '@/assets/villa-alrimaila-new.jpg';
 import property1 from '@/assets/property1.jpg';
 import property2 from '@/assets/property2.jpg';
 import property3 from '@/assets/property3.jpg';

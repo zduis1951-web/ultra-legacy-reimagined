@@ -87,7 +87,7 @@ const Navbar = () => {
                   transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                 />
               )}
-              <span className="absolute -bottom-1.5 left-1/2 right-1/2 h-[1px] bg-gold/50 transition-all duration-300 group-hover:left-0 group-hover:right-0" />
+              
             </Link>
           ))}
         </div>

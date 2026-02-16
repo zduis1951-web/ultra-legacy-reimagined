@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Globe } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import logo from '@/assets/logo.png';
 
@@ -68,11 +69,19 @@ const Navbar = () => {
             <Link
               key={link.to}
               to={link.to}
-              className={`text-[11px] font-body font-medium tracking-[0.2em] uppercase transition-colors duration-300 hover:text-gold ${
+              className={`relative text-[11px] font-body font-medium tracking-[0.2em] uppercase transition-colors duration-300 hover:text-gold group ${
                 location.pathname === link.to ? activeColor : textColor
               }`}
             >
               {link.label}
+              {location.pathname === link.to && (
+                <motion.div
+                  layoutId="navbar-underline"
+                  className="absolute -bottom-1.5 left-0 right-0 h-[2px] bg-gold"
+                  transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                />
+              )}
+              <span className="absolute -bottom-1.5 left-1/2 right-1/2 h-[1px] bg-gold/50 transition-all duration-300 group-hover:left-0 group-hover:right-0" />
             </Link>
           ))}
         </div>

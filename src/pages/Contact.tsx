@@ -107,7 +107,7 @@ const Contact = () => {
               {/* Google Maps */}
               <div className="border border-border overflow-hidden">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3605.755!2d55.4444!3d25.4052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5f1c0b0b0b0b%3A0x0!2sAjman%20Rashidiya%203!5e0!3m2!1sen!2sae!4v1700000000000"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d901.4!2d55.4374702!3d25.3991525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f59002d2d35c5%3A0xa385fd166e22cee!2sBayt%20alshumukh%20real%20estate!5e0!3m2!1sen!2sae!4v1700000000000"
                   width="100%"
                   height="400"
                   style={{ border: 0 }}

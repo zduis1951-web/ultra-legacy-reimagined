@@ -24,33 +24,72 @@ const TestimonialsSection = () => {
   const { t, language } = useLanguage();
 
   return (
-    <section className="py-24 md:py-32 bg-secondary">
-      <div className="container mx-auto px-6">
+    <section className="relative py-32 md:py-44 bg-foreground text-background overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+      <div className="absolute top-12 right-12 w-72 h-72 border border-gold/5 rotate-45 hidden lg:block" />
+      <div className="absolute bottom-12 left-12 w-52 h-52 border border-gold/5 -rotate-12 hidden lg:block" />
+
+      <div className="relative container mx-auto px-6">
+        {/* Heading */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          transition={{ duration: 0.8 }}
+          className="text-center mb-20 md:mb-28"
         >
-          <span className="text-xs font-body font-semibold tracking-[0.3em] uppercase text-gold">{t('testimonials.tag')}</span>
-          <h2 className="mt-4 text-3xl md:text-5xl font-display font-bold text-foreground">{t('testimonials.title')}</h2>
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: 80 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="h-px bg-gold mx-auto mb-8"
+          />
+          <span className="text-xs font-body font-semibold tracking-[0.4em] uppercase text-gold">{t('testimonials.tag')}</span>
+          <h2 className="mt-6 text-4xl md:text-6xl lg:text-7xl font-display font-bold leading-[1.1]">
+            {t('testimonials.title')}
+          </h2>
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: 80 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="h-px bg-gold mx-auto mt-8"
+          />
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        {/* Testimonial Cards */}
+        <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
           {testimonials.map((item, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.15 }}
-              className="bg-card p-8 border border-border hover:border-gold/20 transition-all duration-500"
+              transition={{ duration: 0.7, delay: i * 0.15 }}
+              className="group relative"
             >
-              <Quote className="h-8 w-8 text-gold/30 mb-4" />
-              <p className="text-foreground/80 leading-relaxed italic font-body">{item.text[language]}</p>
-              <div className="mt-6 pt-6 border-t border-border">
-                <p className="font-display font-semibold text-foreground">{item.name[language]}</p>
-                <p className="text-xs text-muted-foreground tracking-wider mt-1">{item.role[language]}</p>
+              <div className="relative h-full p-10 bg-background/5 border border-background/10 backdrop-blur-sm transition-all duration-700 hover:border-gold/30 hover:bg-background/10">
+                {/* Top gold line */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-gold-light via-gold to-gold-dark group-hover:w-full transition-all duration-700" />
+
+                {/* Quote icon */}
+                <Quote className="h-10 w-10 text-gold/40 mb-6 group-hover:text-gold/70 transition-colors duration-500" strokeWidth={1.5} />
+
+                {/* Text */}
+                <p className="text-background/70 leading-[1.9] italic font-body text-[15px] group-hover:text-background/90 transition-colors duration-500">
+                  {item.text[language]}
+                </p>
+
+                {/* Author */}
+                <div className="mt-8 pt-6 border-t border-background/10">
+                  <p className="font-display font-bold text-background tracking-wide">{item.name[language]}</p>
+                  <p className="text-xs text-gold tracking-[0.15em] uppercase mt-1.5 font-body">{item.role[language]}</p>
+                </div>
+
+                {/* Bottom gold line */}
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-gold-light via-gold to-gold-dark group-hover:w-full transition-all duration-700" />
               </div>
             </motion.div>
           ))}

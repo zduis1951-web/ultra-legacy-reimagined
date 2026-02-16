@@ -15,6 +15,12 @@ const Footer = () => {
     { to: '/contact', label: t('nav.contact') },
   ];
 
+  const socials = [
+    { key: 'social.instagram', href: '#' },
+    { key: 'social.facebook', href: '#' },
+    { key: 'social.linkedin', href: '#' },
+  ];
+
   return (
     <footer className="bg-foreground text-background">
       <div className="container mx-auto px-6 py-16">
@@ -22,10 +28,10 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <img src={logo} alt="BSH" className="h-10 w-auto brightness-0 invert" />
+              <img src={logo} alt={t('brand.name')} className="h-10 w-auto brightness-0 invert" />
               <div>
-                <span className="block text-sm font-display font-bold tracking-[0.2em] uppercase">Bayt Alshumukh</span>
-                <span className="block text-[10px] tracking-[0.3em] uppercase opacity-60">Real Estate</span>
+                <span className="block text-sm font-display font-bold tracking-[0.2em] uppercase">{t('brand.name')}</span>
+                <span className="block text-[10px] tracking-[0.3em] uppercase opacity-60">{t('brand.subtitle')}</span>
               </div>
             </div>
             <p className="text-sm opacity-60 leading-relaxed">{t('footer.desc')}</p>
@@ -71,9 +77,9 @@ const Footer = () => {
             <div className="mt-8">
               <h4 className="font-display font-semibold text-sm tracking-[0.15em] uppercase mb-4 text-gold">{t('footer.followUs')}</h4>
               <div className="flex gap-4">
-                {['Instagram', 'Facebook', 'LinkedIn'].map((social) => (
-                  <a key={social} href="#" className="text-xs opacity-60 hover:opacity-100 hover:text-gold transition-all duration-300 tracking-wider uppercase">
-                    {social}
+                {socials.map((social) => (
+                  <a key={social.key} href={social.href} className="text-xs opacity-60 hover:opacity-100 hover:text-gold transition-all duration-300 tracking-wider uppercase">
+                    {t(social.key)}
                   </a>
                 ))}
               </div>
@@ -83,7 +89,7 @@ const Footer = () => {
 
         <div className="mt-16 pt-8 border-t border-background/10 text-center">
           <p className="text-xs opacity-40 tracking-wider">
-            © {new Date().getFullYear()} Bayt Alshumukh Real Estate. {t('footer.rights')}
+            {t('footer.copyright').replace('{year}', new Date().getFullYear().toString())}
           </p>
         </div>
       </div>

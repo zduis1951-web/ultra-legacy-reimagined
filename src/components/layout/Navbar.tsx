@@ -9,6 +9,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const { language, setLanguage, t } = useLanguage();
   const location = useLocation();
+  const isHome = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -29,6 +30,13 @@ const Navbar = () => {
     { to: '/contact', label: t('nav.contact') },
   ];
 
+  // On home page before scroll: white text. Otherwise: dark text.
+  const isTransparent = isHome && !scrolled;
+  const textColor = isTransparent ? 'text-white' : 'text-foreground/70';
+  const activeColor = 'text-gold';
+  const brandColor = isTransparent ? 'text-white' : 'text-foreground';
+  const brandSubColor = isTransparent ? 'text-white/60' : 'text-muted-foreground';
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -40,13 +48,17 @@ const Navbar = () => {
       <nav className="container mx-auto flex items-center justify-between px-6 py-4">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3 group">
-          <img src={logo} alt="Bayt Alshumukh" className="h-10 w-auto transition-transform duration-300 group-hover:scale-105" />
+          <img
+            src={logo}
+            alt={t('brand.name')}
+            className={`h-10 w-auto transition-transform duration-300 group-hover:scale-105 ${isTransparent ? 'brightness-0 invert' : ''}`}
+          />
           <div className="hidden sm:block">
-            <span className="block text-sm font-display font-bold tracking-[0.2em] uppercase text-foreground">
-              Bayt Alshumukh
+            <span className={`block text-sm font-display font-bold tracking-[0.2em] uppercase ${brandColor} transition-colors duration-300`}>
+              {t('brand.name')}
             </span>
-            <span className="block text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
-              Real Estate
+            <span className={`block text-[10px] tracking-[0.3em] uppercase ${brandSubColor} transition-colors duration-300`}>
+              {t('brand.subtitle')}
             </span>
           </div>
         </Link>
@@ -58,7 +70,7 @@ const Navbar = () => {
               key={link.to}
               to={link.to}
               className={`text-xs font-body font-medium tracking-[0.15em] uppercase transition-colors duration-300 hover:text-gold ${
-                location.pathname === link.to ? 'text-gold' : 'text-foreground/70'
+                location.pathname === link.to ? activeColor : textColor
               }`}
             >
               {link.label}
@@ -70,14 +82,14 @@ const Navbar = () => {
         <div className="flex items-center gap-4">
           <button
             onClick={() => setLanguage(language === 'en' ? 'ar' : 'en')}
-            className="flex items-center gap-1.5 text-xs font-medium tracking-wider uppercase text-foreground/70 hover:text-gold transition-colors duration-300"
+            className={`flex items-center gap-1.5 text-xs font-medium tracking-wider uppercase hover:text-gold transition-colors duration-300 ${textColor}`}
           >
             <Globe className="h-4 w-4" />
             <span>{language === 'en' ? 'العربية' : 'English'}</span>
           </button>
 
           <button
-            className="lg:hidden text-foreground"
+            className={`lg:hidden ${brandColor} transition-colors duration-300`}
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >

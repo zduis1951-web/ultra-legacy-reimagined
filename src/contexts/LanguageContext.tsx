@@ -13,6 +13,9 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 const translations: Record<Language, Record<string, string>> = {
   en: {
+    // Brand
+    "brand.name": "Bayt Alshumukh",
+    "brand.subtitle": "Real Estate",
     // Nav
     "nav.home": "Home",
     "nav.services": "Our Services",
@@ -75,6 +78,11 @@ const translations: Record<Language, Record<string, string>> = {
     "footer.address": "Abu Dhabi, United Arab Emirates",
     "footer.followUs": "Follow Us",
     "footer.rights": "All rights reserved.",
+    "footer.copyright": "© {year} Bayt Alshumukh Real Estate. All rights reserved.",
+    // Social
+    "social.instagram": "Instagram",
+    "social.facebook": "Facebook",
+    "social.linkedin": "LinkedIn",
     // Services
     "services.title": "Our Services",
     "services.subtitle": "Comprehensive real estate solutions tailored to your needs",
@@ -119,6 +127,9 @@ const translations: Record<Language, Record<string, string>> = {
     "contact.hoursValue": "Sun - Thu: 9AM - 6PM",
   },
   ar: {
+    // Brand
+    "brand.name": "بيت الشموخ",
+    "brand.subtitle": "عقارات",
     // Nav
     "nav.home": "الرئيسية",
     "nav.services": "خدماتنا",
@@ -181,6 +192,11 @@ const translations: Record<Language, Record<string, string>> = {
     "footer.address": "أبوظبي، الإمارات العربية المتحدة",
     "footer.followUs": "تابعنا",
     "footer.rights": "جميع الحقوق محفوظة.",
+    "footer.copyright": "© {year} بيت الشموخ العقارية. جميع الحقوق محفوظة.",
+    // Social
+    "social.instagram": "انستغرام",
+    "social.facebook": "فيسبوك",
+    "social.linkedin": "لينكدإن",
     // Services
     "services.title": "خدماتنا",
     "services.subtitle": "حلول عقارية شاملة مصممة لاحتياجاتك",
@@ -222,7 +238,7 @@ const translations: Record<Language, Record<string, string>> = {
     "contact.send": "إرسال الرسالة",
     "contact.office": "مكتبنا",
     "contact.hours": "ساعات العمل",
-    "contact.hoursValue": "الأحد - الخميس: 9 صباحاً - 6 مساءً",
+    "contact.hoursValue": "الأحد - الخميس: ٩ صباحاً - ٦ مساءً",
   },
 };
 

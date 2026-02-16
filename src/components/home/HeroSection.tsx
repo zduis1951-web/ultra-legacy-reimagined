@@ -12,7 +12,7 @@ const HeroSection = () => {
       {/* Background */}
       <div className="absolute inset-0">
         <img src={heroBg} alt="" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/20" />
       </div>
 
       {/* Content */}
@@ -24,7 +24,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="w-12 h-[1px] bg-gold mb-8" />
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-display font-bold text-background leading-[1.1] whitespace-pre-line">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-display font-bold text-white leading-[1.1] whitespace-pre-line drop-shadow-lg">
               {t('hero.title')}
             </h1>
           </motion.div>
@@ -33,7 +33,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-6 text-background/70 text-lg md:text-xl font-body font-light max-w-lg leading-relaxed"
+            className="mt-6 text-white/80 text-lg md:text-xl font-body font-light max-w-lg leading-relaxed drop-shadow-md"
           >
             {t('hero.subtitle')}
           </motion.p>
@@ -53,7 +53,7 @@ const HeroSection = () => {
             </Link>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 border border-background/30 hover:border-gold text-background hover:text-gold px-8 py-4 text-xs font-body font-semibold tracking-[0.2em] uppercase transition-all duration-300"
+              className="inline-flex items-center gap-2 border border-white/40 hover:border-gold text-white hover:text-gold px-8 py-4 text-xs font-body font-semibold tracking-[0.2em] uppercase transition-all duration-300"
             >
               {t('hero.secondary')}
             </Link>

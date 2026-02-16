@@ -69,6 +69,12 @@ const Navbar = () => {
             <Link
               key={link.to}
               to={link.to}
+              onClick={(e) => {
+                if (location.pathname === link.to) {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
               className={`relative text-[11px] font-body font-medium tracking-[0.2em] uppercase transition-colors duration-300 hover:text-gold group ${
                 location.pathname === link.to ? activeColor : textColor
               }`}
@@ -117,6 +123,12 @@ const Navbar = () => {
             <Link
               key={link.to}
               to={link.to}
+              onClick={(e) => {
+                if (location.pathname === link.to) {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
               className={`text-sm font-body font-medium tracking-[0.2em] uppercase py-3 border-b border-border/50 transition-colors duration-300 hover:text-gold hover:border-gold/20 ${
                 location.pathname === link.to ? 'text-gold border-gold/30' : 'text-foreground/60'
               }`}

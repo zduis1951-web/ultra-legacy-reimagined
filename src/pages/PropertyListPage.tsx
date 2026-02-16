@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Bed, Bath, Home, ArrowRight, ArrowLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Skeleton } from '@/components/ui/skeleton';
 import villaImg from '@/assets/villa-alrimaila-new.jpg';
@@ -42,6 +42,7 @@ interface PropertyListPageProps {
 
 const PropertyListPage = ({ type }: PropertyListPageProps) => {
   const { t, language, isRTL } = useLanguage();
+  const navigate = useNavigate();
   const [filter, setFilter] = useState('all');
   const [locationFilter, setLocationFilter] = useState('all');
   const [loading, setLoading] = useState(false);
@@ -185,7 +186,8 @@ const PropertyListPage = ({ type }: PropertyListPageProps) => {
                       initial={{ opacity: 0, y: 30 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: i * 0.08, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                      className="group bg-card overflow-hidden border border-border hover:border-gold/30 transition-all duration-500 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)]"
+                      onClick={() => navigate(`/property/${prop.id}`)}
+                      className="group bg-card overflow-hidden border border-border hover:border-gold/30 transition-all duration-500 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] cursor-pointer"
                     >
                       <div className="relative aspect-[4/3] overflow-hidden">
                         <img src={prop.image} alt={prop.title[language]} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
@@ -202,13 +204,10 @@ const PropertyListPage = ({ type }: PropertyListPageProps) => {
                         )}
                         <div className="mt-4 pt-4 border-t border-border flex items-center justify-between">
                           <span className="font-display font-bold text-lg text-gold">{prop.price}</span>
-                          <Link
-                            to={`/property/${prop.id}`}
-                            className="inline-flex items-center gap-1 text-xs font-body tracking-wider uppercase text-muted-foreground hover:text-gold transition-colors"
-                          >
+                          <span className="inline-flex items-center gap-1 text-xs font-body tracking-wider uppercase text-muted-foreground group-hover:text-gold transition-colors">
                             {t('property.viewDetails')}
                             {isRTL ? <ArrowLeft className="h-3.5 w-3.5" /> : <ArrowRight className="h-3.5 w-3.5" />}
-                          </Link>
+                          </span>
                         </div>
                       </div>
                     </motion.div>

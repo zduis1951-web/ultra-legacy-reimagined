@@ -25,7 +25,6 @@ const TestimonialsSection = () => {
 
   return (
     <section className="relative py-32 md:py-44 bg-background overflow-hidden">
-      {/* Subtle decorative lines */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
 
@@ -69,22 +68,22 @@ const TestimonialsSection = () => {
               transition={{ duration: 0.7, delay: i * 0.15 }}
               className="group relative"
             >
-              <div className="relative h-full p-10 bg-card border border-border/60 transition-all duration-700 hover:border-gold/40 hover:shadow-[0_25px_80px_-20px_rgba(0,0,0,0.08)]">
+              <div className="relative h-full p-10 lg:p-12 bg-card border border-border/60 transition-all duration-700 hover:border-gold/40 hover:shadow-[0_25px_80px_-20px_rgba(0,0,0,0.08)]">
                 {/* Top gold line */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-gold-light via-gold to-gold-dark group-hover:w-full transition-all duration-700" />
 
                 {/* Quote icon */}
-                <Quote className="h-10 w-10 text-gold/30 mb-6 group-hover:text-gold/60 transition-colors duration-500" strokeWidth={1.5} />
+                <Quote className="h-12 w-12 text-gold/25 mb-8 group-hover:text-gold/50 transition-colors duration-700" strokeWidth={1} />
 
                 {/* Text */}
-                <p className="text-muted-foreground leading-[1.9] italic font-body text-[15px] group-hover:text-foreground/80 transition-colors duration-500">
+                <p className="text-muted-foreground leading-[2] italic font-body text-[15px] group-hover:text-foreground/80 transition-colors duration-700">
                   {item.text[language]}
                 </p>
 
                 {/* Author */}
-                <div className="mt-8 pt-6 border-t border-border">
+                <div className="mt-10 pt-6 border-t border-gold/15">
                   <p className="font-display font-bold text-foreground tracking-wide">{item.name[language]}</p>
-                  <p className="text-xs text-gold tracking-[0.15em] uppercase mt-1.5 font-body">{item.role[language]}</p>
+                  <p className="text-[10px] text-gold tracking-[0.2em] uppercase mt-2 font-body">{item.role[language]}</p>
                 </div>
 
                 {/* Bottom gold line */}

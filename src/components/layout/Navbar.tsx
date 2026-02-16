@@ -30,46 +30,45 @@ const Navbar = () => {
     { to: '/contact', label: t('nav.contact') },
   ];
 
-  // On home page before scroll: white text. Otherwise: dark text.
   const isTransparent = isHome && !scrolled;
-  const textColor = isTransparent ? 'text-white' : 'text-foreground/70';
+  const textColor = isTransparent ? 'text-white' : 'text-foreground/60';
   const activeColor = 'text-gold';
   const brandColor = isTransparent ? 'text-white' : 'text-foreground';
-  const brandSubColor = isTransparent ? 'text-white/60' : 'text-muted-foreground';
+  const brandSubColor = isTransparent ? 'text-white/50' : 'text-muted-foreground';
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-background/95 backdrop-blur-md shadow-[0_1px_0_hsl(var(--border))]'
+          ? 'bg-background/95 backdrop-blur-md border-b border-gold/10'
           : 'bg-transparent'
       }`}
     >
-      <nav className="container mx-auto flex items-center justify-between px-6 py-4">
+      <nav className="container mx-auto flex items-center justify-between px-6 py-5 lg:py-6">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-3 group">
+        <Link to="/" className="flex items-center gap-4 group">
           <img
             src={logo}
             alt={t('brand.name')}
-            className={`h-10 w-auto transition-transform duration-300 group-hover:scale-105 ${isTransparent ? 'brightness-0 invert' : ''}`}
+            className={`h-11 w-auto transition-transform duration-300 group-hover:scale-105 ${isTransparent ? 'brightness-0 invert' : ''}`}
           />
           <div className="hidden sm:block">
-            <span className={`block text-sm font-display font-bold tracking-[0.2em] uppercase ${brandColor} transition-colors duration-300`}>
+            <span className={`block text-sm font-display font-bold tracking-[0.25em] uppercase ${brandColor} transition-colors duration-300`}>
               {t('brand.name')}
             </span>
-            <span className={`block text-[10px] tracking-[0.3em] uppercase ${brandSubColor} transition-colors duration-300`}>
+            <span className={`block text-[9px] tracking-[0.35em] uppercase ${brandSubColor} transition-colors duration-300 mt-0.5`}>
               {t('brand.subtitle')}
             </span>
           </div>
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden lg:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-10">
           {navLinks.map((link) => (
             <Link
               key={link.to}
               to={link.to}
-              className={`text-xs font-body font-medium tracking-[0.15em] uppercase transition-colors duration-300 hover:text-gold ${
+              className={`text-[11px] font-body font-medium tracking-[0.2em] uppercase transition-colors duration-300 hover:text-gold ${
                 location.pathname === link.to ? activeColor : textColor
               }`}
             >
@@ -79,12 +78,12 @@ const Navbar = () => {
         </div>
 
         {/* Right side */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-5">
           <button
             onClick={() => setLanguage(language === 'en' ? 'ar' : 'en')}
-            className={`flex items-center gap-1.5 text-xs font-medium tracking-wider uppercase hover:text-gold transition-colors duration-300 ${textColor}`}
+            className={`flex items-center gap-1.5 text-[11px] font-medium tracking-wider uppercase hover:text-gold transition-colors duration-300 ${textColor}`}
           >
-            <Globe className="h-4 w-4" />
+            <Globe className="h-3.5 w-3.5" />
             <span>{language === 'en' ? 'العربية' : 'English'}</span>
           </button>
 
@@ -101,16 +100,16 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <div
         className={`lg:hidden overflow-hidden transition-all duration-500 ease-in-out ${
-          isOpen ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'
-        } bg-background/98 backdrop-blur-lg`}
+          isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+        } bg-background/98 backdrop-blur-xl border-t border-gold/10`}
       >
-        <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
+        <div className="container mx-auto px-6 py-8 flex flex-col gap-1">
           {navLinks.map((link) => (
             <Link
               key={link.to}
               to={link.to}
-              className={`text-sm font-body font-medium tracking-[0.15em] uppercase py-2 border-b border-border transition-colors duration-300 hover:text-gold ${
-                location.pathname === link.to ? 'text-gold' : 'text-foreground/70'
+              className={`text-sm font-body font-medium tracking-[0.2em] uppercase py-3 border-b border-border/50 transition-colors duration-300 hover:text-gold hover:border-gold/20 ${
+                location.pathname === link.to ? 'text-gold border-gold/30' : 'text-foreground/60'
               }`}
             >
               {link.label}

@@ -31,7 +31,7 @@ const CTASection = () => {
               {isRTL ? <ArrowLeft className="h-4 w-4" /> : <ArrowRight className="h-4 w-4" />}
             </Link>
             <a
-              href="tel:+97126666888"
+              href="tel:+971501788428"
               className="inline-flex items-center gap-2 border border-background/30 hover:border-gold text-background hover:text-gold px-8 py-4 text-xs font-body font-semibold tracking-[0.2em] uppercase transition-all duration-300"
             >
               <Phone className="h-4 w-4" />

@@ -17,7 +17,7 @@ const FloatingWhatsApp = () => {
         <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-30 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
 
         {/* Main button */}
-        <span className="relative flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] shadow-[0_0_20px_rgba(37,211,102,0.5)] hover:shadow-[0_0_30px_rgba(37,211,102,0.7)] transition-all duration-300 hover:scale-110 animate-[bounce_2s_ease-in-out_infinite]">
+        <span className="relative flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"

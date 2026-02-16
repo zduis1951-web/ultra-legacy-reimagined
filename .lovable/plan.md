@@ -1,29 +1,20 @@
 
-# تحسين التمرير لأعلى عند النقر
 
-## المشكلة
-1. عند النقر على روابط الـ Navbar وأنت بالفعل في نفس الصفحة (مثلا FOR SALE وانت في /for-sale)، لا يحدث تمرير لاعلى لان `pathname` لم يتغير
-2. بطاقات العقارات ليست قابلة للنقر بالكامل - فقط رابط "VIEW DETAILS" يعمل، والبطاقة نفسها لا تنقل للتفاصيل
+# ازالة الخط العلوي في المنيو والنقطة الصفراء
 
-## التغييرات المطلوبة
+## المشاكل المحددة من الصورة:
 
-### 1. تحديث Navbar (`src/components/layout/Navbar.tsx`)
-- اضافة `onClick` handler لكل رابط في الـ Navbar
-- عند النقر على رابط الصفحة الحالية (نفس المسار): تنفيذ `window.scrollTo({ top: 0, behavior: 'smooth' })` مباشرة
-- هذا يحل مشكلة النقر على FOR SALE وانت في صفحة FOR SALE
+### 1. الخط الظاهر اسفل روابط المنيو
+في ملف `src/components/layout/Navbar.tsx` يوجد عنصر `span` (سطر 90) يعمل كخط hover يظهر من الوسط عند تمرير الماوس. هذا الخط ظاهر بشكل خفيف حتى بدون hover لانه يحتوي على `bg-gold/50`. سيتم ازالته بالكامل لتنظيف المظهر والابقاء فقط على الخط المتحرك للصفحة النشطة.
 
-### 2. جعل بطاقة العقار كاملة قابلة للنقر (`src/pages/PropertyListPage.tsx`)
-- لف كامل بطاقة العقار (الصورة + المعلومات) برابط `Link` واحد يوجه الى `/property/:id`
-- او اضافة `onClick` على البطاقة يستخدم `useNavigate` للتوجيه مع cursor pointer
-- الابقاء على رابط "VIEW DETAILS" كعنصر مرئي فقط (بدون تكرار الرابط)
+### 2. النقطة الصفراء اسفل صفحة الهيرو
+في ملف `src/components/home/HeroSection.tsx` يوجد مؤشر تمرير (scroll indicator) في اسفل قسم الهيرو يتكون من خط عمودي ونقطة صفراء صغيرة (سطر 73: `w-1.5 h-1.5 rounded-full bg-gold/60`). سيتم ازالة النقطة الصفراء فقط مع الابقاء على الخط العمودي، او ازالة المؤشر بالكامل حسب الرغبة.
 
-### 3. تحسين ScrollToTop (`src/components/ScrollToTop.tsx`)
-- اضافة `useNavigationType` من react-router-dom
-- التمرير فقط عند التنقل العادي (PUSH) وليس عند الضغط على زر الرجوع (POP)
+## التغييرات:
 
-## التفاصيل التقنية
+### ملف `src/components/layout/Navbar.tsx`
+- حذف سطر 90: `<span className="absolute -bottom-1.5 left-1/2 right-1/2 h-[1px] bg-gold/50 ..." />`
 
-### الملفات المتاثرة:
-1. `src/components/layout/Navbar.tsx` - اضافة onClick للتمرير عند النقر على الصفحة الحالية
-2. `src/pages/PropertyListPage.tsx` - جعل البطاقة كاملة قابلة للنقر
-3. `src/components/ScrollToTop.tsx` - تحسين بـ useNavigationType
+### ملف `src/components/home/HeroSection.tsx`
+- حذف النقطة الصفراء في سطر 73: `<div className="w-1.5 h-1.5 rounded-full bg-gold/60" />`
+

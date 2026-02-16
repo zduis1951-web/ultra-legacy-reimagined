@@ -78,7 +78,7 @@ const Contact = () => {
             >
               {[
                 { icon: MapPin, label: t('contact.office'), value: t('footer.address') },
-                { icon: Phone, label: t('cta.call'), value: '+971 2 666 6888' },
+                { icon: Phone, label: t('cta.call'), value: '+971-50-178-8428' },
                 { icon: Mail, label: t('contact.email'), value: 'info@baytalshumukh.com' },
                 { icon: Clock, label: t('contact.hours'), value: t('contact.hoursValue') },
               ].map((item, i) => (

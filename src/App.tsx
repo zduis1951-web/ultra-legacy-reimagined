@@ -13,6 +13,7 @@ import OffPlan from "./pages/OffPlan";
 import Contact from "./pages/Contact";
 import PropertyDetailPage from "./pages/PropertyDetailPage";
 import NotFound from "./pages/NotFound";
+import FloatingWhatsApp from "./components/FloatingWhatsApp";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
+          <FloatingWhatsApp />
         </BrowserRouter>
       </TooltipProvider>
     </LanguageProvider>

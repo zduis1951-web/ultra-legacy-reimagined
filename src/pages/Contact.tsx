@@ -4,6 +4,7 @@ import { Phone, Mail, MapPin, ChevronDown, Send } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useToast } from '@/hooks/use-toast';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import CompanyProfileSection from '@/components/contact/CompanyProfileSection';
 
 const Contact = () => {
   const { t } = useLanguage();
@@ -29,6 +30,9 @@ const Contact = () => {
             <p className="mt-4 text-muted-foreground font-body">{t('contact.subtitle')}</p>
             <div className="w-12 h-px bg-gold/60 mx-auto mt-6" />
           </motion.div>
+
+          {/* Company Profile Brochure */}
+          <CompanyProfileSection />
 
           {/* Collapsible Contact Form */}
           <motion.div

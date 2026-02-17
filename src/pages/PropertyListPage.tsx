@@ -8,6 +8,7 @@ import villaImg from '@/assets/villa-alrimaila-new.jpg';
 import property1 from '@/assets/property1.jpg';
 import property2 from '@/assets/property2.jpg';
 import property3 from '@/assets/property3.jpg';
+import propertiesHeroBg from '@/assets/properties-hero-bg.jpg';
 
 const allProperties = [
   {
@@ -96,8 +97,12 @@ const PropertyListPage = ({ type }: PropertyListPageProps) => {
 
   return (
     <main className="pt-24">
-      <section className="py-24 md:py-32">
-        <div className="container mx-auto px-6">
+      <section className="relative py-24 md:py-32 overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={propertiesHeroBg} alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-background/88 backdrop-blur-[2px]" />
+        </div>
+        <div className="container mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-12">
             <span className="text-xs font-body font-semibold tracking-[0.3em] uppercase text-gold">BSH</span>
             <h1 className="mt-4 text-3xl md:text-5xl font-display font-bold text-foreground">{title}</h1>

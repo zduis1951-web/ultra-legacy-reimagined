@@ -2,7 +2,9 @@ import { useEffect, useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Shield, Award, Lightbulb } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import heroBg from '@/assets/hero-bg.jpg';
+import profileHeroBg from '@/assets/profile-hero-bg.jpg';
+import profileValuesBg from '@/assets/profile-values-bg.jpg';
+import profileQuoteBg from '@/assets/profile-quote-bg.jpg';
 import logo from '@/assets/logo.png';
 
 const useCounter = (end: number, inView: boolean) => {
@@ -52,7 +54,7 @@ const CompanyProfileSection = () => {
       >
         {/* Background */}
         <div className="absolute inset-0">
-          <img src={heroBg} alt="" className="w-full h-full object-cover" />
+          <img src={profileHeroBg} alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-foreground/85" />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-foreground/95" />
           {/* Gold corner accents */}
@@ -132,8 +134,13 @@ const CompanyProfileSection = () => {
       </div>
 
       {/* Part 3: Core Values */}
-      <div className="py-20 md:py-28 bg-card">
-        <div className="container mx-auto px-6">
+      <div className="py-20 md:py-28 relative overflow-hidden">
+        {/* Values Background */}
+        <div className="absolute inset-0">
+          <img src={profileValuesBg} alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-background/90 backdrop-blur-sm" />
+        </div>
+        <div className="container mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -187,14 +194,19 @@ const CompanyProfileSection = () => {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="py-20 md:py-28 bg-background relative"
+        className="py-20 md:py-28 relative overflow-hidden"
       >
-        <div className="container mx-auto px-6">
+        {/* Quote Background */}
+        <div className="absolute inset-0">
+          <img src={profileQuoteBg} alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-foreground/80 backdrop-blur-sm" />
+        </div>
+        <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             {/* Gold quotation mark */}
             <span className="text-7xl md:text-9xl font-display text-gold/20 leading-none select-none">"</span>
 
-            <p className="mt-[-20px] md:mt-[-40px] text-lg md:text-xl font-body italic text-foreground/80 leading-relaxed px-4">
+            <p className="mt-[-20px] md:mt-[-40px] text-lg md:text-xl font-body italic text-background/90 leading-relaxed px-4">
               {t('profile.quote')}
             </p>
 
@@ -203,7 +215,7 @@ const CompanyProfileSection = () => {
               <p className="text-xs font-body font-semibold tracking-[0.3em] uppercase text-gold pt-4">
                 {t('profile.quoteAuthor')}
               </p>
-              <p className="text-[10px] font-body tracking-[0.2em] uppercase text-muted-foreground">
+              <p className="text-[10px] font-body tracking-[0.2em] uppercase text-background/50">
                 {t('brand.name')} {t('brand.subtitle')}
               </p>
             </div>

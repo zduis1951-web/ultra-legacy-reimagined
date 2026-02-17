@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Home, Building, Briefcase, Truck, Award, Users, Shield, Lightbulb, ArrowRight, ArrowLeft, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
+import servicesHeroBg from '@/assets/services-hero-bg.jpg';
 
 const Services = () => {
   const { t, isRTL } = useLanguage();
@@ -24,7 +25,10 @@ const Services = () => {
     <main className="pt-24">
       {/* Hero Services Section */}
       <section className="relative py-32 md:py-44 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/20 to-background" />
+        <div className="absolute inset-0">
+          <img src={servicesHeroBg} alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-background/85 backdrop-blur-[2px]" />
+        </div>
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
 

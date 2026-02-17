@@ -5,7 +5,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { useToast } from '@/hooks/use-toast';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import CompanyProfileSection from '@/components/contact/CompanyProfileSection';
-import contactHeroBg from '@/assets/contact-hero-bg.jpg';
+import contactHeroBg from '@/assets/contact-hero-bg.png';
 
 const Contact = () => {
   const { t } = useLanguage();

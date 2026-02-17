@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Shield, Award, Lightbulb } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import profileHeroBg from '@/assets/profile-hero-bg.jpg';
+import profileHeroBg from '@/assets/profile-hero-bg.png';
 import profileValuesBg from '@/assets/profile-values-bg.jpg';
 import profileQuoteBg from '@/assets/profile-quote-bg.jpg';
 import logo from '@/assets/logo.png';

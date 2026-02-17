@@ -132,7 +132,7 @@ const Contact = () => {
               <div className="space-y-6 flex flex-col justify-center">
                 {[
                   { icon: MapPin, label: t('contact.office'), value: t('footer.address') },
-                  { icon: Phone, label: t('cta.call'), value: '+971-50-178-8428' },
+                  { icon: Phone, label: t('cta.call'), value: '+971-55-629-0436' },
                   { icon: Mail, label: t('contact.email'), value: 'info@baytalshumukh.com' },
                 ].map((item, i) => (
                   <div key={i} className="flex gap-4 p-6 border border-border hover:border-gold/30 transition-all duration-300">

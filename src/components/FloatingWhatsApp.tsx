@@ -2,7 +2,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 const FloatingWhatsApp = () => {
   const { t } = useLanguage();
-  const whatsappUrl = 'https://api.whatsapp.com/send/?phone=971502997042&text&type=phone_number&app_absent=0';
+  const whatsappUrl = 'https://api.whatsapp.com/send/?phone=971556290436&text&type=phone_number&app_absent=0';
 
   return (
     <div className="fixed bottom-6 right-6 z-50">

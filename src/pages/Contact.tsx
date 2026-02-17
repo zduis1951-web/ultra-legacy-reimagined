@@ -5,6 +5,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { useToast } from '@/hooks/use-toast';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import CompanyProfileSection from '@/components/contact/CompanyProfileSection';
+import contactHeroBg from '@/assets/contact-hero-bg.jpg';
 
 const Contact = () => {
   const { t } = useLanguage();
@@ -20,8 +21,12 @@ const Contact = () => {
 
   return (
     <main className="pt-24">
-      <section className="py-24 md:py-32">
-        <div className="container mx-auto px-6">
+      <section className="relative py-24 md:py-32 overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={contactHeroBg} alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-background/88 backdrop-blur-[2px]" />
+        </div>
+        <div className="container mx-auto px-6 relative z-10">
           {/* Page Header */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-16">
             <div className="w-12 h-px bg-gold/60 mx-auto mb-6" />

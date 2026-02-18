@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import logo from '@/assets/logo.png';
+import shaboLogo from '@/assets/shabo-logo.png';
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -99,6 +100,15 @@ const Footer = () => {
           <p className="text-[10px] opacity-35 tracking-[0.2em] uppercase">
             {t('footer.copyright').replace('{year}', new Date().getFullYear().toString())}
           </p>
+          <a
+            href="https://shaboai.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 mt-4 opacity-40 hover:opacity-80 hover:text-gold transition-all duration-500"
+          >
+            <img src={shaboLogo} alt="Shabo AI" className="h-5 w-auto" />
+            <span className="text-[10px] tracking-[0.15em] uppercase">Developed by Shabo AI</span>
+          </a>
         </div>
       </div>
     </footer>

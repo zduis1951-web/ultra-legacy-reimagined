@@ -158,15 +158,11 @@ const Contact = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: i * 0.15 }}
-                    className="group flex gap-5 p-8 border border-border hover:border-gold/40 bg-card hover:shadow-[0_8px_30px_-12px_hsl(var(--gold)/0.15)] transition-all duration-500"
+                    className="group flex gap-5 p-8 bg-background/60 backdrop-blur-md border border-white/20 hover:border-gold/30 hover:bg-background/80 hover:shadow-[0_8px_32px_-8px_hsl(var(--gold)/0.12)] transition-all duration-500"
                   >
-                    {/* Diamond Icon */}
-                    <div className="relative w-14 h-14 shrink-0">
-                      <div className="absolute inset-0 rotate-45 border-2 border-border group-hover:border-gold/50 transition-colors duration-500" />
-                      <div className="absolute inset-1.5 rotate-45 border border-border/50 group-hover:border-gold/30 transition-colors duration-500" />
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <item.icon className="h-5 w-5 text-gold group-hover:scale-110 transition-transform duration-500" />
-                      </div>
+                    {/* Minimal circle icon */}
+                    <div className="w-12 h-12 shrink-0 flex items-center justify-center rounded-full border border-gold/20 group-hover:border-gold/40 transition-colors duration-500">
+                      <item.icon className="h-5 w-5 text-gold group-hover:scale-110 transition-transform duration-500" />
                     </div>
                     <div>
                       <p className="text-xs font-body font-semibold tracking-[0.15em] uppercase text-muted-foreground mb-2">{item.label}</p>

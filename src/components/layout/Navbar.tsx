@@ -142,14 +142,14 @@ const Navbar = () => {
 
       {/* Ramadan Lanterns - hanging from navbar */}
       <div className="hidden lg:flex absolute top-full left-8 flex-col items-center pointer-events-none" style={{ zIndex: 40 }}>
-        <div className="w-[1px] h-3 bg-gold/40" />
-        <img src={lantern} alt="" className={`h-[45px] w-auto transition-opacity duration-500 ${isTransparent ? 'opacity-25' : 'opacity-15'}`} style={{ transform: 'scaleX(-1)' }} />
-        <div className={`w-6 h-4 rounded-full transition-opacity duration-500 ${isTransparent ? 'opacity-20' : 'opacity-10'}`} style={{ background: 'radial-gradient(ellipse, hsl(38 65% 45% / 0.6), transparent)', filter: 'blur(4px)' }} />
+        <div className="w-[1px] h-6 bg-gold/50" />
+        <img src={lantern} alt="" className={`h-[60px] w-auto transition-opacity duration-500 ${isTransparent ? 'opacity-60' : 'opacity-40'}`} style={{ transform: 'scaleX(-1)' }} />
+        <div className={`w-10 h-8 rounded-full transition-opacity duration-500 ${isTransparent ? 'opacity-40' : 'opacity-25'}`} style={{ background: 'radial-gradient(ellipse, hsl(38 65% 50% / 0.7), transparent)', filter: 'blur(6px)' }} />
       </div>
       <div className="hidden lg:flex absolute top-full right-8 flex-col items-center pointer-events-none" style={{ zIndex: 40 }}>
-        <div className="w-[1px] h-3 bg-gold/40" />
-        <img src={lantern} alt="" className={`h-[45px] w-auto transition-opacity duration-500 ${isTransparent ? 'opacity-25' : 'opacity-15'}`} />
-        <div className={`w-6 h-4 rounded-full transition-opacity duration-500 ${isTransparent ? 'opacity-20' : 'opacity-10'}`} style={{ background: 'radial-gradient(ellipse, hsl(38 65% 45% / 0.6), transparent)', filter: 'blur(4px)' }} />
+        <div className="w-[1px] h-6 bg-gold/50" />
+        <img src={lantern} alt="" className={`h-[60px] w-auto transition-opacity duration-500 ${isTransparent ? 'opacity-60' : 'opacity-40'}`} />
+        <div className={`w-10 h-8 rounded-full transition-opacity duration-500 ${isTransparent ? 'opacity-40' : 'opacity-25'}`} style={{ background: 'radial-gradient(ellipse, hsl(38 65% 50% / 0.7), transparent)', filter: 'blur(6px)' }} />
       </div>
     </header>
   );

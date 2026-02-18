@@ -51,27 +51,33 @@ const OffPlan = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.15 }}
-                className="group bg-card overflow-hidden border border-border hover:border-gold/30 transition-all duration-500"
               >
-                <div className="relative aspect-[16/10] overflow-hidden">
-                  <img src={project.image} alt={project.title[language]} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent" />
-                  <div className="absolute bottom-4 left-4 flex items-center gap-2 text-background">
-                    <Calendar className="h-4 w-4 text-gold" />
-                    <span className="text-xs font-body tracking-wider">{t('offplan.completion')}: {project.completion}</span>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="font-display font-semibold text-xl text-foreground">{project.title[language]}</h3>
-                  <p className="mt-1 text-xs text-muted-foreground tracking-wider">{project.location[language]}</p>
-                  <div className="mt-4 pt-4 border-t border-border flex items-center justify-between">
-                    <div>
-                      <span className="text-[10px] text-muted-foreground uppercase tracking-wider">{t('offplan.startingFrom')}</span>
-                      <p className="font-display font-bold text-lg text-gold">{project.startingPrice}</p>
+                <a
+                  href={`https://wa.me/971556290436?text=${encodeURIComponent(`I'm interested in ${project.title.en}`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block group bg-card overflow-hidden border border-border hover:border-gold/30 transition-all duration-500 cursor-pointer"
+                >
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    <img src={project.image} alt={project.title[language]} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent" />
+                    <div className="absolute bottom-4 left-4 flex items-center gap-2 text-background">
+                      <Calendar className="h-4 w-4 text-gold" />
+                      <span className="text-xs font-body tracking-wider">{t('offplan.completion')}: {project.completion}</span>
                     </div>
-                    {isRTL ? <ArrowLeft className="h-5 w-5 text-gold" /> : <ArrowRight className="h-5 w-5 text-gold" />}
                   </div>
-                </div>
+                  <div className="p-6">
+                    <h3 className="font-display font-semibold text-xl text-foreground">{project.title[language]}</h3>
+                    <p className="mt-1 text-xs text-muted-foreground tracking-wider">{project.location[language]}</p>
+                    <div className="mt-4 pt-4 border-t border-border flex items-center justify-between">
+                      <div>
+                        <span className="text-[10px] text-muted-foreground uppercase tracking-wider">{t('offplan.startingFrom')}</span>
+                        <p className="font-display font-bold text-lg text-gold">{project.startingPrice}</p>
+                      </div>
+                      {isRTL ? <ArrowLeft className="h-5 w-5 text-gold transition-transform duration-300 group-hover:-translate-x-1" /> : <ArrowRight className="h-5 w-5 text-gold transition-transform duration-300 group-hover:translate-x-1" />}
+                    </div>
+                  </div>
+                </a>
               </motion.div>
             ))}
           </div>

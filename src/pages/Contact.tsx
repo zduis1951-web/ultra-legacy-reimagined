@@ -107,46 +107,84 @@ const Contact = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
+            className="pt-12"
           >
-            <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground text-center mb-12">
-              {t('contact.contactInfo')}
-            </h2>
+            {/* Gold separator top */}
+            <div className="h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent mb-20" />
 
-            <div className="grid lg:grid-cols-2 gap-10">
-              {/* Google Maps */}
-              <div className="border border-border overflow-hidden">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3600.0!2d55.4315796!3d25.3939812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5900435303b5%3A0x6d21f011c5363d62!2sAl%20Shumukh%20%E6%88%BF%E4%BA%A7%E4%B8%AD%E4%BB%8B!5e0!3m2!1sen!2sae!4v1700000000000"
-                  width="100%"
-                  height="400"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Bayt Alshumukh Location"
-                  className="w-full h-[400px]"
-                />
+            {/* Branded Section Header */}
+            <div className="text-center mb-16">
+              <div className="w-12 h-px bg-gold/60 mx-auto mb-6" />
+              <span className="text-xs font-body font-semibold tracking-[0.3em] uppercase text-gold">BSH</span>
+              <h2 className="mt-4 text-2xl md:text-4xl font-display font-bold text-foreground">
+                {t('contact.contactInfo')}
+              </h2>
+              <div className="w-12 h-px bg-gold/60 mx-auto mt-6" />
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-12">
+              {/* Google Maps - Luxury Frame */}
+              <div className="relative p-3 border border-border">
+                {/* Gold corner accents */}
+                <div className="absolute top-2 left-2 w-8 h-8 border-t border-l border-gold/40" />
+                <div className="absolute top-2 right-2 w-8 h-8 border-t border-r border-gold/40" />
+                <div className="absolute bottom-2 left-2 w-8 h-8 border-b border-l border-gold/40" />
+                <div className="absolute bottom-2 right-2 w-8 h-8 border-b border-r border-gold/40" />
+                <div className="border border-border/50 overflow-hidden">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3600.0!2d55.4315796!3d25.3939812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5900435303b5%3A0x6d21f011c5363d62!2sAl%20Shumukh%20%E6%88%BF%E4%BA%A7%E4%B8%AD%E4%BB%8B!5e0!3m2!1sen!2sae!4v1700000000000"
+                    width="100%"
+                    height="450"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Bayt Alshumukh Location"
+                    className="w-full h-[450px]"
+                  />
+                </div>
               </div>
 
-              {/* Contact Details */}
+              {/* Contact Details - Luxury Cards */}
               <div className="space-y-6 flex flex-col justify-center">
                 {[
-                  { icon: MapPin, label: t('contact.office'), value: t('footer.address') },
-                  { icon: Phone, label: t('cta.call'), value: '+971-55-629-0436' },
-                  { icon: Mail, label: t('contact.email'), value: 'info@baytalshumukh.com' },
+                  { icon: MapPin, label: t('contact.office'), value: t('footer.address'), href: undefined },
+                  { icon: Phone, label: t('cta.call'), value: '+971-55-629-0436', href: 'tel:+971556290436' },
+                  { icon: Mail, label: t('contact.email'), value: 'info@baytalshumukh.com', href: 'mailto:info@baytalshumukh.com' },
                 ].map((item, i) => (
-                  <div key={i} className="flex gap-4 p-6 border border-border hover:border-gold/30 transition-all duration-300">
-                    <div className="w-12 h-12 shrink-0 flex items-center justify-center border border-border">
-                      <item.icon className="h-5 w-5 text-gold" />
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.15 }}
+                    className="group flex gap-5 p-8 border border-border hover:border-gold/40 bg-card hover:shadow-[0_8px_30px_-12px_hsl(var(--gold)/0.15)] transition-all duration-500"
+                  >
+                    {/* Diamond Icon */}
+                    <div className="relative w-14 h-14 shrink-0">
+                      <div className="absolute inset-0 rotate-45 border-2 border-border group-hover:border-gold/50 transition-colors duration-500" />
+                      <div className="absolute inset-1.5 rotate-45 border border-border/50 group-hover:border-gold/30 transition-colors duration-500" />
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <item.icon className="h-5 w-5 text-gold group-hover:scale-110 transition-transform duration-500" />
+                      </div>
                     </div>
                     <div>
-                      <p className="text-xs font-body font-semibold tracking-[0.15em] uppercase text-muted-foreground">{item.label}</p>
-                      <p className="mt-1 font-body text-foreground">{item.value}</p>
+                      <p className="text-xs font-body font-semibold tracking-[0.15em] uppercase text-muted-foreground mb-2">{item.label}</p>
+                      {item.href ? (
+                        <a href={item.href} className="font-body text-foreground hover:text-gold transition-colors duration-300">
+                          {item.value}
+                        </a>
+                      ) : (
+                        <p className="font-body text-foreground">{item.value}</p>
+                      )}
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
+
+            {/* Gold separator bottom */}
+            <div className="h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent mt-20" />
           </motion.div>
         </div>
       </section>

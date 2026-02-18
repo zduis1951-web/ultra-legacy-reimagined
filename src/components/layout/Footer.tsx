@@ -3,6 +3,7 @@ import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin } from 'lucide-react
 import { useLanguage } from '@/contexts/LanguageContext';
 import logo from '@/assets/logo.png';
 import shaboLogo from '@/assets/shabo-logo.png';
+import lantern from '@/assets/ramadan-lantern.svg';
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -96,7 +97,21 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-20 pt-8 border-t border-gold/10 text-center">
+        <div className="mt-20 pt-8 border-t border-gold/10 text-center relative overflow-hidden">
+          {/* Ramadan Lanterns */}
+          <div className="hidden md:block absolute left-8 bottom-0 pointer-events-none">
+            <div className="relative">
+              <img src={lantern} alt="" className="h-[130px] w-auto opacity-30 scale-x-[-1]" />
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-20 h-8 bg-[radial-gradient(ellipse_at_center,hsl(var(--gold)/0.25),transparent_70%)] blur-sm" />
+            </div>
+          </div>
+          <div className="hidden md:block absolute right-8 bottom-0 pointer-events-none">
+            <div className="relative">
+              <img src={lantern} alt="" className="h-[130px] w-auto opacity-30" />
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-20 h-8 bg-[radial-gradient(ellipse_at_center,hsl(var(--gold)/0.25),transparent_70%)] blur-sm" />
+            </div>
+          </div>
+
           <p className="text-[10px] opacity-35 tracking-[0.2em] uppercase">
             {t('footer.copyright').replace('{year}', new Date().getFullYear().toString())}
           </p>

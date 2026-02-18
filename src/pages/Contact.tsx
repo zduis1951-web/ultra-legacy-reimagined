@@ -158,7 +158,7 @@ const Contact = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: i * 0.15 }}
-                    className="group flex gap-5 p-8 bg-background/60 backdrop-blur-md border border-white/20 hover:border-gold/30 hover:bg-background/80 hover:shadow-[0_8px_32px_-8px_hsl(var(--gold)/0.12)] transition-all duration-500"
+                    className="group flex gap-5 p-8 bg-background/40 backdrop-blur-[6px] border border-white/15 hover:border-gold/25 hover:bg-background/55 hover:shadow-[0_8px_32px_-8px_hsl(var(--gold)/0.1)] transition-all duration-500"
                   >
                     {/* Minimal circle icon */}
                     <div className="w-12 h-12 shrink-0 flex items-center justify-center rounded-full border border-gold/20 group-hover:border-gold/40 transition-colors duration-500">
